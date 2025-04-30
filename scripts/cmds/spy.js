@@ -1,7 +1,7 @@
 const axios = require("axios");
 const baseApiUrl = async () => {
   const base = await axios.get(
-    `https://raw.githubusercontent.com/KingsOfToxiciter/YouTube-Download/refs/heads/main/hasan.json`,
+    `https://raw.githubusercontent.com/Mostakim0978/D1PT0/refs/heads/main/baseApiUrl.json`,
   );
   return base.data.api;
 };
@@ -14,7 +14,7 @@ module.exports = {
     role: 0,
     author: "Dipto",
     Description: "Get user information and profile photo",
-    category: "info",
+    category: "information",
     countDown: 10,
   },
 
@@ -63,13 +63,13 @@ module.exports = {
     let genderText;
     switch (userInfo[uid].gender) {
       case 1:
-        genderText = "𝐺𝑖𝑟𝑙🙋🏻‍♀️";
+        genderText = "𝙶𝚒𝚛𝚕🙋🏻‍♀️";
         break;
       case 2:
-        genderText = "𝐵𝑜𝑦🙋🏻‍♂️";
+        genderText = "Boy🙋🏻‍♂️";
         break;
       default:
-        genderText = "𝐺𝑎𝑦🤷🏻‍♂️";
+        genderText = "𝙶𝚊𝚢🤷🏻‍♂️";
     }
 
     const money = (await usersData.get(uid)).money;
@@ -79,21 +79,21 @@ module.exports = {
 
     const userInformation = `
 ╭────[ 𝐔𝐒𝐄𝐑 𝐈𝐍𝐅𝐎 ]
-├‣ 𝑵𝒂𝒎𝒆: ${userInfo[uid].name}
-├‣ 𝑮𝒆𝒏𝒅𝒆𝒓: ${genderText}
-├‣ 𝑼𝑰𝑫: ${uid}
-├‣ 𝑪𝒍𝒂𝒔𝒔: ${position ? position?.toUpperCase() : "𝙽𝚘𝚛𝚖𝚊𝚕 𝚄𝚜𝚎𝚛🥺"}
-├‣ 𝑼𝒔𝒆𝒓𝒏𝒂𝒎𝒆: ${userInfo[uid].vanity ? userInfo[uid].vanity : "𝙽𝚘𝚗𝚎"}
-├‣ 𝑷𝒓𝒐𝒇𝒊𝒍𝒆 𝑼𝒓𝒍: ${userInfo[uid].profileUrl}
-├‣ 𝑩𝒊𝒓𝒕𝒉𝒅𝒂𝒚: ${userInfo[uid].isBirthday !== false ? userInfo[uid].isBirthday : "𝙿𝚛𝚒𝚟𝚊𝚝𝚎"}
-├‣ 𝑵𝒊𝒄𝒌𝒏𝒂𝒎𝒆: ${userInfo[uid].alternateName || "𝙽𝚘𝚗𝚎"}
-╰‣ 𝑭𝒓𝒊𝒆𝒏𝒅 𝑾𝒊𝒕𝒉 𝑩𝒐𝒕: ${userInfo[uid].isFriend ? "𝚈𝚎𝚜✅" : "𝙽𝚘❎"}
+├‣ 𝙽𝚊𝚖𝚎: ${userInfo[uid].name}
+├‣ 𝙶𝚎𝚗𝚍𝚎𝚛: ${genderText}
+├‣ 𝚄𝙸𝙳: ${uid}
+├‣ 𝙲𝚕𝚊𝚜𝚜: ${position ? position?.toUpperCase() : "𝙽𝚘𝚛𝚖𝚊𝚕 𝚄𝚜𝚎𝚛🥺"}
+├‣ 𝚄𝚜𝚎𝚛𝚗𝚊𝚖𝚎: ${userInfo[uid].vanity ? userInfo[uid].vanity : "𝙽𝚘𝚗𝚎"}
+├‣ 𝙿𝚛𝚘𝚏𝚒𝚕𝚎 𝚄𝚁𝙻: ${userInfo[uid].profileUrl}
+├‣ 𝙱𝚒𝚛𝚝𝚑𝚍𝚊𝚢: ${userInfo[uid].isBirthday !== false ? userInfo[uid].isBirthday : "𝙿𝚛𝚒𝚟𝚊𝚝𝚎"}
+├‣ 𝙽𝚒𝚌𝚔𝙽𝚊𝚖𝚎: ${userInfo[uid].alternateName || "𝙽𝚘𝚗𝚎"}
+╰‣ 𝙵𝚛𝚒𝚎𝚗𝚍 𝚠𝚒𝚝𝚑 𝚋𝚘𝚝: ${userInfo[uid].isFriend ? "𝚈𝚎𝚜✅" : "𝙽𝚘❎"}
 
 ╭─────[ 𝐔𝐒𝐄𝐑 𝐒𝐓𝐀𝐓𝐒 ]
-├‣ 𝑴𝒐𝒏𝒓𝒚: $${formatMoney(money)}
-├‣ 𝑹𝒂𝒏𝒌: #${rank}/${allUser.length}
-├‣ 𝑴𝒐𝒏𝒆𝒚 𝑹𝒂𝒏𝒌: #${moneyRank}/${allUser.length}
-╰‣ 𝑩𝒂𝒃𝒚 𝑻𝒆𝒂𝒄𝒉: ${babyTeach || 0}`;
+├‣ 𝙼𝚘𝚗𝚎𝚢: $${formatMoney(money)}
+├‣ 𝚁𝚊𝚗𝚔: #${rank}/${allUser.length}
+├‣ 𝙼𝚘𝚗𝚎𝚢 𝚁𝚊𝚗𝚔: #${moneyRank}/${allUser.length}
+╰‣ 𝙱𝚊𝚋𝚢 𝚝𝚎𝚊𝚌𝚑: ${babyTeach || 0}`;
 
     message.reply({
       body: userInformation,
@@ -107,4 +107,4 @@ function formatMoney(num) {
   let unit = 0;
   while (num >= 1000 && ++unit < units.length) num /= 1000;
   return num.toFixed(1).replace(/\.0$/, "") + units[unit];
-        }
+  }
