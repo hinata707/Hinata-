@@ -6,32 +6,39 @@ module.exports = {
     name: "imgbb",
     aliases: ["i"],
     version: "1.0",
-    author: "♡︎ 𝐻𝐴𝑆𝐴𝑁 ♡︎",
+    author: "OtinXSandip",
     countDown: 5,
     role: 0,
     shortDescription: {
-      en: "Converting an image to image url"
+      en: "Upload image to imgbb"
     },
     longDescription: {
       en: "Upload image to imgbb by replying to photo"
     },
-    category: "tools",
+    category: "utility",
     guide: {
-      en: "{pn} reply to an image"
+      en: ""
     }
   },
 
   onStart: async function ({ api, event }) {
-        const URL = event.messageReply?.attachments[0]?.url;
-    if (!URL) {
+    const imgbbApiKey = "1b4d99fa0c3195efe42ceb62670f2a25"; // Replace "YOUR_API_KEY_HERE" with your actual API key
+    const linkanh = event.messageReply?.attachments[0]?.url;
+    if (!linkanh) {
       return api.sendMessage('Please reply to an image.', event.threadID, event.messageID);
     }
-       
 
     try {
-      const hasan = "https://hasan-all-apis.onrender.com";
-      const response = await axios.get(`${hasan}/imgbb?imageUrl=${encodeURIComponent(URL)}`);
-      const imageLink = response.data.imageUrl;
+      const response = await axios.get(linkanh, { responseType: 'arraybuffer' });
+      const formData = new FormData();
+      formData.append('image', Buffer.from(response.data, 'binary'), { filename: 'image.png' });
+      const res = await axios.post('https://api.imgbb.com/1/upload', formData, {
+        headers: formData.getHeaders(),
+        params: {
+          key: imgbbApiKey
+        }
+      });
+      const imageLink = res.data.data.url;
       return api.sendMessage(imageLink, event.threadID, event.messageID);
     } catch (error) {
       console.log(error);
