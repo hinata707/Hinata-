@@ -1,65 +1,44 @@
-const config = {
-    name: "tag",
-    version: "2.1",
-    author: "Dipto & Updated by ♡︎ 𝐻𝐴𝑆𝐴𝑁 ♡︎",
-    credits: "Dipto",
-    countDown: 0,
-    role: 0,
-    hasPermission: 0,
-    description: "Tag user by reply, mention, or name",
-    category: "box chat",
-    commandCategory: "tag",
-    guide: "{pn} [reply/mention/name]",
-    usages: "reply, mention, or search by name"
-};
-
-const onStart = async ({ api, args, event, usersData }) => {
-    try {
-        let ID;
-        if (event.messageReply) {
-            ID = event.messageReply.senderID;
-        } else if (args.length > 0) {
-            let searchName = args.join(" ").toLowerCase();
-            let allUsers = await api.getThreadInfo(event.threadID);
-            let matchedUsers = allUsers.userInfo.filter(user => 
-                user.name.toLowerCase().includes(searchName)
-            );
-
-            if (matchedUsers.length === 0) {
-                return api.sendMessage(`❌| can't find any user: ${searchName}`, event.threadID, event.messageID);
-            }
-
-            let mentions = matchedUsers.map(user => ({
-                tag: user.name,
-                id: user.id
-            }));
-
-            let mentionText = mentions.map(user => user.tag).join(", ");
-            return api.sendMessage({
-                body: `🔔 ${mentionText}`,
-                mentions
-            }, event.threadID, event.messageID);
-        } else {
-            ID = event.senderID;
-        }
-
-        const userName = await usersData.getName(ID);
-            const text = args.join(" ") || "";
-            await api.sendMessage({
-                body: `${userName} ${text}`,
-                mentions: [{ tag: userName, id: ID }]
-            }, event.threadID, event.messageID);
-        } else {
-            api.sendMessage("⚠️ please reply to a message or write username!", event.threadID, event.messageID);
-        }
-    } catch (error) {
-        console.log(error);
-        api.sendMessage(`🚨 error: ${error.message}`, event.threadID, event.messageID);
-    }
-};
-
 module.exports = {
-    config, 
-    onStart,
-    run: onStart
+  config: {
+    name: "tag",
+    version: "1.0",
+    author: "saidul",
+    countDown: 5,
+    role: 0,
+    shortDescription: {
+      en: "Tag members by name"
+    },
+    longDescription: {
+      en: "Mention group members by matching name"
+    },
+    category: "group",
+    guide: {
+      en: "{pn} [name]"
+    }
+  },
+
+  onStart: async function ({ api, event, args }) {
+    const name = args.join(" ");
+    if (!name) return api.sendMessage("⚠️ Please provide a name to tag.", event.threadID, event.messageID);
+
+    const threadInfo = await api.getThreadInfo(event.threadID);
+    const members = threadInfo.userInfo;
+    const matches = members.filter(user => 
+      user.name && user.name.toLowerCase().includes(name.toLowerCase())
+    );
+
+    if (matches.length === 0)
+      return api.sendMessage(`❌ No members found matching "${name}".`, event.threadID, event.messageID);
+
+    const mentions = matches.map(user => ({
+      tag: user.name,
+      id: user.id
+    }));
+
+    const taggedNames = matches.map(user => user.name).join(", ");
+    return api.sendMessage({
+      body: `🔖 Tagging: ${taggedNames}`,
+      mentions
+    }, event.threadID, event.messageID);
+  }
 };
